@@ -1,3 +1,5 @@
+
+#approach was to generate column wise numbers randomly in sorted format and removing the numbers randomly row-wise and finally printing the output
 def Housie
     #no of rows and columns
     rows = 3
@@ -10,20 +12,21 @@ def Housie
 
     #adding unique and sorted elements in column wise
     for i in 0..8 do
-        #generating random numbers using random method
+        #generating random numbers using custom random method
         column_arr = random(i)
         for j in 0..2 do
             ticket[j][i] = column_arr[j]
         end
     end
 
-    #selecting 5 nos randomly from the given list of array
+    #selecting 4 nos randomly from the given list of array and replacing the same with X
     for i in 0..2 do
         resultant_row = ticket[i].sample(4)
         ticket[i] =ticket[i].map { |x| resultant_row.include?(x) ? "X" : x}
     end
+  
 
-
+   #Printing the final output
    for i in 0..2 do
         for j in 0..8 do
             print "#{ticket[i][j]}" + "   "
